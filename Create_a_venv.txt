@@ -1,0 +1,10 @@
+write this command in the terminal
+step 1
+python -m venv F:\AshmawyPresentations\Study\Task_one\venv
+step 2 
+Ctrl+Shift+P
+Then python : select interpreter
+Then go to the venv path , you have recently created it 
+from venv choose scripts 
+then choose python
+

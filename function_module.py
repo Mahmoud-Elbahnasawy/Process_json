@@ -1,5 +1,6 @@
 import requests
 import json
+import pandas as pd
 from Database_queries import *
 # 1
 def request_json_file(url):
@@ -457,9 +458,20 @@ def main():
         for insert_statement in insert_statements:
             cur.execute(insert_statement ,values_extractor(insert_statement , extracted_values) )
 
+
         
-        
-        
+    # here i will try pandas only with the main_table 
+    df = pd.read_json('json_data.json')
+
+    
+    for index, row in df.iterrows():
+        cur.execute(insert_statements[0], row.id , row.name, row.username, row.email , row.id , row.phone , row.website , row.id )
+
+    conn.close()    
+    # USING PANDAS 
+    #main_table_insert_query = build_insert_query_from_create_query(table_create_statement_builder(process_json_object(i)))
+    #print("\/"*20 , main_table_insert_query)
+    
 
 
     print('\n\n')
